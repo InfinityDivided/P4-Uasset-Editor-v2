@@ -24,6 +24,7 @@ How to use:
 1. Use any method to obtain the .uasset files you want to edit, for example:
 
 a) In FModel, navigate to the folder or .uasset file you want to modify, then right click it and select "Export Raw Data (.uasset)"
+
 b) In the Pikmin 4 UCAS UTOC Packing tool, copy and paste the folder or files you want to modify from the UNPACKOUTPUT folder
 
 2. Move the obtained folder or files to the input folder (_INPUT by defualt)
