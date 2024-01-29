@@ -1,0 +1,47 @@
+2.2
+- Added partial support for blueprint generated class files (files that start with "G"). 
+  Files in these directories are officially supported, but others may work too:
+-- Carrot4/Content/Carrot4/Placeables/Teki
+-- Carrot4/Content/Carrot4/Placeables/Pikmin
+-- Carrot4/Content/Carrot4/Placeables/Objects/Otakara
+
+- Fix: Files which contain a name associated to two different classes are no longer encoded incorrectly.
+- Fix: Vector structs inside arrays (the ones with the elements "X", "Y", "Z") are now encoded correctly.
+
+
+2.1
+- Added support for data tables (files that start with "DT")
+- Added support for imports from the global.ucas file
+- Slightly restructured the editable .json output to accomodate data tables, files decoded in 2.0 will have to be decoded again
+
+
+2.0 - Completely rewrote the tool. It supports arbitrary changes to the data structure now, but is limited to editing "ActorPlacementInfoAsset" type assets.
+
+
+=====
+
+
+1.2.1 - HOTFIX: Individual enemy files are now patched correctly
+
+
+1.2
+- Added method for patching directories. The path of the input and output directories are customizable.
+- Added name map header extraction and manipulation functionality (still limited to replacing headers of the same length)
+- Added batch files for patching and header extraction.
+- Added command: SET. Can be used to do direct hex editing from the .json.
+- Added command: ENCODE. Can be used to force the patcher to behave properly in certain edge cases.
+- Added info_headers.txt file containing information on possible header changes.
+- Changed directory structure.
+
+
+1.1 
+- Added commands: INC, DEC. Can be used to change the value of a byte in a given offset.
+- Added commands.txt file containing information on command usage.
+- Added known_enums.json file containing byte value differences of the ERebirthType and EGeneratorActorSaveFlag enums.
+- Added info_enums.txt file containing information on how to change enum values.
+
+
+1.0.1 - HOTFIX: .json file now loads even if the text contains non-latin characters.
+
+
+1.0 - Initial Release
