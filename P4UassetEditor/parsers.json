@@ -1,0 +1,311 @@
+{
+  "UAssetInitialHeader": {
+    "Prefix": {},
+    "Content": {
+      "FMappedNameName": "UINT64",
+      "FMappedNameSource": "UINT64",
+      "PackageFlags": "UINT32",
+      "CookedHeaderSize": "UINT32",
+      "NameMapOffset": "UINT32",
+      "NameMapSize": "UINT32",
+      "!STORE NameMapHashesOffset": "UINT32",
+      "NameMapHashesSize": "UINT32",
+      "!STORE ImportMapOffset": "UINT32",
+      "!STORE ExportMapOffset": "UINT32",
+      "!STORE ExportBundlesOffset": "UINT32",
+      "!STORE GraphDataOffset": "UINT32",
+      "!STORE GraphDataSize": "UINT32",
+      "!NULL": 4
+    }
+  },
+  "ExportObject":{
+    "Prefix": {},
+    "Content": {
+      "CookedSerialOffset": "UINT64",
+      "CookedSerialSize": "UINT64",
+      "ObjectName": "NAME",
+      "OuterIndex": "UINT64",
+      "ClassIndex": "UINT64",
+      "SuperIndex": "UINT64",
+      "GlobalImportIndex": "UINT64",
+      "PublicExportHash": "UINT64",
+      "UnknownFlags": "UINT64"
+    }
+  },
+  "StructProperty": {
+    "Prefix": {
+      "!STORE StructClass": "NAME",
+      "!NULL": 17
+    },
+    "Content": {
+      "!JUMP": "StructClass",
+      "StructContent": "NAMEITER"
+    }
+  },
+  "ArrayProperty": {
+    "Prefix": {
+      "!STORE ArrayInnerClass": "NAME",
+      "!NULL": 1
+    },
+    "Content": {
+      "!STORE ArrayLength": "UINT32",
+      "!IFEQUALS ArrayInnerClass": "StructProperty",
+      "!INCLUDE": "StructInArray",
+      "ArrayContent": "ARRAY"
+    }
+  },
+   "SetProperty": {
+    "Prefix": {
+      "!STORE ArrayInnerClass": "NAME",
+      "!NULL": 1
+    },
+    "Content": {
+      "UnknownValue": "UINT32",
+      "!STORE ArrayLength": "UINT32",
+      "ArrayContent": "ARRAY"
+    }
+  },
+  "StructInArray": {
+    "Prefix": {
+      "StructInArrayName": "NAME",
+      "StructInArrayClass": "NAME",
+      "StructInArrayLength": "UINT64",
+      "!STORE StructInArrayStructClass": "NAME",
+      "!NULL": 17
+    },
+    "Content": {}
+  },
+  "UInt16Property": {
+    "Prefix": {
+      "!NULL": 1
+    },
+    "Content": {
+      "!PURE": "UINT16"
+    }
+  },
+  "IntProperty": {
+    "Prefix": {
+      "!NULL": 1
+    },
+    "Content": {
+      "!PURE": "INT32"
+    }
+  },
+  "UInt32Property": {
+    "Prefix": {
+      "!NULL": 1
+    },
+    "Content": {
+      "!PURE": "UINT32"
+    }
+  },
+  "UInt64Property": {
+    "Prefix": {
+      "!NULL": 1
+    },
+    "Content": {
+      "!PURE": "UINT64"
+    }
+  },
+  "FloatProperty": {
+    "Prefix": {
+      "!NULL": 1
+    },
+    "Content": {
+      "!PURE": "FLOAT"
+    }
+  },
+  "BoolProperty": {
+    "Prefix": {},
+    "Content": {
+      "!PURE": "BOOL",
+      "!NULL": 1
+    }
+  },
+  "ReducedBoolProperty": {
+    "Prefix": {},
+    "Content": {
+      "!PURE": "BOOL"
+    }
+  },
+  "StrProperty": {
+    "Prefix": {
+      "!NULL": 1
+    },
+    "Content": {
+      "!STORE StringLength": "INT32",
+      "StringContent": "STRING"
+    }
+  },
+  "NameProperty": {
+    "Prefix": {
+      "!NULL": 1
+    },
+    "Content": {
+      "!PURE": "NAME"
+    }
+  },
+  "EnumProperty": {
+    "Prefix": {
+      "EnumClass": "NAME",
+      "!NULL": 1
+    },
+    "Content": {
+      "EnumValue": "NAME"
+    }
+  },
+  "WeirdByteProperty": {
+    "Prefix": {
+      "EnumClass": "NAME",
+      "!NULL": 1
+    },
+    "Content": {
+      "EnumValue": "NAME"
+    }
+  },
+  "SoftObjectProperty": {
+    "Prefix": {
+      "!NULL": 1
+    },
+    "Content": {
+      "AssetPathName": "NAME",
+      "SubPathString": "INT32"
+    }
+  },
+  "ObjectProperty": {
+    "Prefix": {
+      "!NULL": 1
+    },
+    "Content": {
+      "!PURE": "IMPORT"
+    }
+  },
+  "ByteProperty": {
+    "Prefix": {
+      "!SKIP": "NONE",
+      "!NULL": 1
+    },
+    "Content": {
+      "!PURE": "BYTE"
+    }
+  },
+  "MapProperty": {
+    "Prefix": {
+      "!STORE MapFromClass": "NAME",
+      "!STORE MapToClass": "NAME",
+      "!NULL": 1
+    },
+    "Content": {
+      "!NULL": 4,
+      "!STORE MapLength": "UINT32",
+      "MapContent": "MAP"
+    }
+  },
+  "MulticastSparseDelegateProperty": {
+    "Prefix": {
+      "!NULL": 1
+    },
+    "Content": {
+      "!STORE MSDLength": "UINT32",
+      "MSDContent": "MSD"
+    }
+  },
+  "ChildIntProperty": {
+    "Prefix": {},
+    "Content": {
+      "Name": "NAME",
+      "Flags": "UINT64",
+      "ElementSize": "UINT32",
+      "PropertyFlags": "UINT64",
+      "!NULL": 2,
+      "!SKIP": "NONE",
+      "!NULL 2": 1
+    }
+  },
+  "ChildFloatProperty": {
+    "Prefix": {},
+    "Content": {
+      "!INCLUDE": "ChildIntProperty"
+    }
+  },
+  "ChildObjectProperty": {
+    "Prefix": {},
+    "Content": {
+      "!INCLUDE": "ChildIntProperty",
+      "PropertyClass": "IMPORT"
+    }
+  },
+  "ChildStructProperty": {
+    "Prefix": {},
+    "Content": {
+      "!INCLUDE": "ChildObjectProperty"
+    }
+  },
+  "Vector2D": {
+    "Prefix": {},
+    "Content": {
+      "X": "FLOAT",
+      "Y": "FLOAT"
+    }
+  },
+  "Vector": {
+    "Prefix": {},
+    "Content": {
+      "!INCLUDE": "Vector2D",
+      "Z": "FLOAT"
+    }
+  },
+  "Vector4": {
+    "Prefix": {},
+    "Content": {
+      "!INCLUDE": "Vector",
+      "W": "FLOAT"
+    }
+  },
+  "Quat": {
+    "Prefix": {},
+    "Content": {
+      "!INCLUDE": "Vector",
+      "W": "FLOAT"
+    }
+  },
+  "Color": {
+    "Prefix": {},
+    "Content": {
+      "B": "BYTE",
+      "G": "BYTE",
+      "R": "BYTE",
+      "A": "BYTE"
+    }
+  },
+  "LinearColor": {
+    "Prefix": {},
+    "Content": {
+      "R": "FLOAT",
+      "B": "FLOAT",
+      "G": "FLOAT",
+      "A": "FLOAT"
+    }
+  },
+  "Rotator": {
+    "Prefix": {},
+    "Content": {
+      "Pitch": "FLOAT",
+      "Yaw": "FLOAT",
+      "Roll": "FLOAT"
+    }
+  },
+  "SoftObjectPath": {
+    "Prefix": {},
+    "Content": {
+      "AssetPathName": "NAME",
+      "SubPathString": "INT32"
+    }
+  },
+  "Guid": {
+    "Prefix": {},
+    "Content": {
+      "ContentGuid": "GUID"
+    }
+  }
+}
